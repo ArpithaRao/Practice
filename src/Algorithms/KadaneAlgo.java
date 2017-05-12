@@ -11,6 +11,9 @@ public class KadaneAlgo {
         int max_so_far = 0;
         for (String num : numbers) {
             int x = Integer.parseInt(num);
+            if(max_so_far+x<max_so_far) {
+                max_so_far = 0;
+            }
             max_so_far =  Math.max(max_so_far,max_so_far+x);
         }
         System.out.println(max_so_far);

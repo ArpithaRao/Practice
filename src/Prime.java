@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by ARPITHA RAO on 25-02-2016.
  */
@@ -19,6 +21,9 @@ public class Prime {
         int n = 50;
 
         System.out.print(isPrime(n));
+        System.out.println();
+        System.out.println("Generating primes ");
+        System.out.println(generatePrimes());
 
         //Sieve of Eratosthenes algorithm for finding primes
        /* int i, j;
@@ -49,4 +54,30 @@ public class Prime {
         }
         System.out.print(" Number of Primes: "+count);*/
     }
+
+    public static ArrayList<Integer> generatePrimes(){
+        ArrayList<Integer> result = new ArrayList<>();
+        for(int i = 0; i < 100; i++){
+            if(result.size()>25){
+                break;
+            }
+            if(isPrime(i)){
+                result.add(i);
+            }
+        }
+        System.out.println(result.size());
+        return result;
+    }
+
+   /* public static boolean checkIfAnagram(String s1, String s2, ArrayList primes){
+
+        HashMap<Character, Integer> charMap = new HashMap<>();
+        HashSet<Character> alphabets = new HashSet<>();
+
+        for(int i = 0; i < primes.size(); i++){
+            charMap.put()
+        }
+
+    }*/
+
 }

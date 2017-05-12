@@ -1,14 +1,14 @@
 package leetcode;
 
-import org.junit.Assert;
-
 /**
  * Created by ARPITHA RAO on 11-04-2017.
  */
 public class ReverseStringIII {
 
     public String reverse(String input){
-            String[] strings = input.split(" ");
+
+        String newInput = reverseTheString(input);
+            String[] strings = newInput.split(" ");
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < strings.length; i++){
             sb.append(reverseTheString(strings[i]));
@@ -29,8 +29,8 @@ public class ReverseStringIII {
     public static void main(String arg[]){
         String s = "Let's take LeetCode contest";
         ReverseStringIII rs = new ReverseStringIII();
-//        System.out.println(rs.reverse(s));
-        Assert.assertEquals(rs.reverse(s),"s'teL ekat edoCteeL tsetnoc");
+        System.out.println(rs.reverse(s));
+       // Assert.assertEquals(rs.reverse(s),"s'teL ekat edoCteeL tsetnoc");
     }
 
 }

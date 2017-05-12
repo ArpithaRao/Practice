@@ -4,7 +4,7 @@ package leetcode;
  * Created by ARPITHA RAO on 09-01-2017.
  */
 public class LongestPalindromicSubstring {
-    public static String longestPalindrome(String s) {
+    /*public static String longestPalindrome(String s) {
         int n = s.length();
         String res = null;
 
@@ -21,7 +21,34 @@ public class LongestPalindromicSubstring {
         }
 
         return res;
+    }*/
+
+    public static String longestPalindrome(String s){
+        int i = 0, j = s.length()-1;
+        while (i<j) {
+            if ((s.charAt(i) == s.charAt(j) && isPalindrome(s.substring(i + 1, j)))) {
+                return s.substring(i,j);
+            }
+            i++;
+            j--;
+        }
+        return null;
     }
+
+    public static boolean isPalindrome(String s){
+        if(s == null) return false;
+        int i = 0, j = s.length()-1;
+        while (i<j) {
+            if (!(s.charAt(i) == s.charAt(j) && isPalindrome(s.substring(i + 1, j)))) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
+
 
     public static void main(String args[]){
         String s = "fhfbbfhf";

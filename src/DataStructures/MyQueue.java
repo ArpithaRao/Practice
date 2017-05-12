@@ -1,55 +1,90 @@
 package DataStructures;
 
-import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
-    /**
+/**
      * Created by ARPITHA RAO on 04-03-2017.
      */
 
-        public class MyQueue {
 
-            private static ArrayList<Integer> queue = new ArrayList<>();
+public class MyQueue {
 
-            public static ArrayList<Integer> enqueue(int value){
-                queue.add(value);
-                return queue;
+            class ListNode {
+                int data;
+                ListNode next;
+                ListNode(int data){
+                    this.data = data;
+                }
             }
 
-            public static ArrayList<Integer> dequeue(){
-                queue.remove(queue.get(queue.size() - 1));
-                return queue;
-            }
 
-            public static int peek(){
+    private ListNode first;
+    private ListNode last;
 
-                int lastElement = queue.get(queue.size()-1);
-                return lastElement;
-            }
+    public ListNode enqueue(int data){
+        ListNode oldLast = last;
+        ListNode newLast = new ListNode(data);
+        newLast.next = oldLast;
+        last = newLast;
 
-            public static boolean isEmpty(){
-                if(queue.size()>0) return false;
-                return true;
-            }
+        return last;
+    }
 
-        /*public static ArrayList<Integer> kSum(ArrayList<Integer> list, int k){
-            int sum = Integer.MIN_VALUE;
-            for(int i =0; i < list.size() - k; i++ ){
-                if(sum < list.get(i)+list.get(i+1)+list.get(i+2))
-            }
-
-        }*/
-
-            public static void main(String args[]){
-
-                System.out.println(enqueue(3));
-                enqueue(4);
-                enqueue(5);
-                System.out.println(enqueue(6));
-                System.out.println(dequeue());
-                System.out.println(peek());
-                System.out.println(isEmpty());
-
-            }
-
+    public int poll(){
+        if(last == null) return 0;
+        ListNode temp = last;
+        int value = 0;
+        while (temp.next!=null){
+            temp = temp.next;
+            value = temp.next.data;
+            if(temp.next.next == null)temp.next = null;
         }
+
+        first = temp;
+        return value;
+    }
+
+    public int peek(){
+        if(last == null) throw new NoSuchElementException();
+        return last.data;
+    }
+
+    public boolean isEmpty(){
+        if(last == null){
+            return true;
+        }
+        return false;
+    }
+
+    public void printQueue(){
+        ListNode node = last;
+        while(node!=null){
+            System.out.print(node.data + " ");
+            node = node.next;
+        }
+    }
+
+    public static void main(String args[]){
+        MyQueue mq = new MyQueue();
+        mq.enqueue(1);
+        mq.enqueue(2);
+        mq.enqueue(3);
+        mq.enqueue(4);
+        mq.enqueue(5);
+        mq.printQueue();
+
+//        System.out.println(mq.last.data);
+
+        System.out.println("Poll");
+        System.out.println(mq.poll());
+
+        System.out.println(mq.peek());
+
+        System.out.println(mq.isEmpty());
+
+    }
+
+
+
+}
 

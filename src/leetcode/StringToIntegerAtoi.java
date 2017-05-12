@@ -19,8 +19,8 @@ public class StringToIntegerAtoi {
         System.out.println(myAtoi(sample4));
         System.out.println(myAtoi(sample5));
         System.out.println(myAtoi(sample6));
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.MIN_VALUE);
+        /*System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MIN_VALUE);*/
 
     }
 
