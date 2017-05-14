@@ -1,4 +1,4 @@
-package CodingChallenges.rallyhealth.MazeGeneration;
+package CodingChallenges.MazeGeneration;
 
 import java.util.List;
 

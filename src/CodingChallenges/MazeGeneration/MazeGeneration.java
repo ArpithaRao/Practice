@@ -1,4 +1,4 @@
-package CodingChallenges.rallyhealth.MazeGeneration;
+package CodingChallenges.MazeGeneration;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,8 +19,8 @@ public class MazeGeneration extends JFrame {
                     {1,0,1,0,1,1,1,0,1,0,0,1,1},
                     {1,0,1,0,1,1,1,0,1,0,1,0,1},
                     {1,0,1,0,1,1,1,0,1,0,1,0,1},
-                    {1,0,0,0,0,0,0,9,0,0,1,0,1},
-                    {1,1,1,1,1,1,1,1,1,1,1,1,1}
+                    {1,0,0,0,0,0,0,0,0,0,1,0,1},
+                    {1,1,1,1,1,1,1,1,9,1,1,1,1}
                     };
 
     private final List<Integer> path = new ArrayList<>();
@@ -34,7 +34,7 @@ public class MazeGeneration extends JFrame {
         /*starting from co ordinates at (1,3) findPath finds the path to the matrix value that matches 9,
          where 9 is assumed to be the destination*/
 
-        DFSMaze.findPath(maze, 1, 3, path);
+        DFSMaze.findPath(maze, 1, 1, path);
         pathIndex = path.size() - 2;
     }
 

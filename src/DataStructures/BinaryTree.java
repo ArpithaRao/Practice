@@ -123,6 +123,26 @@ public class BinaryTree {
 
     }*/
 
+    public boolean sumOfRootToLeafBT(TreeNode node, int toSum){
+
+        int sum = 0;
+        if(node == null) {
+            return false;
+        }
+
+        if(node.left==null && node.right==null){
+            sum = sum + node.data;
+           if(sum == toSum){
+               return true;
+           }
+        }
+
+        if(node.left!=null) sumOfRootToLeafBT(node.left, toSum);
+        if(node.right!=null) sumOfRootToLeafBT(node.right, toSum);
+
+        return false;
+    }
+
 
     public ArrayList<ArrayList<Integer>> printAllPathsofTree(TreeNode node, ArrayList<Integer> current, ArrayList<ArrayList<Integer>> result ){
         if(node == null) return null;
@@ -184,6 +204,7 @@ public class BinaryTree {
 
     public static void main(String args[]){
         BinaryTree tree = new BinaryTree();
+
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
@@ -251,10 +272,15 @@ public class BinaryTree {
         System.out.println("print all paths of binary tree ");
         tree.printAllPaths(root);
 
-        //testing inner class object creation
-        BinaryTree bt = new BinaryTree();
-        BinaryTree.Node innerClass = bt.new Node(7);
-        innerClass.print();
+//        //testing inner class object creation
+//        BinaryTree bt = new BinaryTree();
+//        BinaryTree.Node innerClass = bt.new Node(7);
+//        innerClass.print();
+
+        //testing sumRootTOLeaf
+        System.out.println("Sum of all paths");
+        BinaryTree bt1 = new BinaryTree();
+        System.out.println(bt1.sumOfRootToLeafBT(root, 10));
     }
 
 }
