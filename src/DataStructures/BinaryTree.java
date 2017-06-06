@@ -5,28 +5,17 @@ import java.util.ArrayList;
 /**
  * Created by ARPITHA RAO on 21-04-2017.
  */
+class TreeNode{
+    int data;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int data){
+        this.data = data;
+    }
+}
+
 public class BinaryTree {
 
-    int data;
-
-    static class TreeNode{
-        int data;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int data){
-            this.data = data;
-        }
-    }
-
-    class Node{
-        int i = 0;
-        public Node(int i) {
-           this.i = i;
-        }
-        public void print(){
-            System.out.println(data);
-        }
-    }
 
     //DFS tree traversals recursive
     public void inOrderRecursive(TreeNode root){
