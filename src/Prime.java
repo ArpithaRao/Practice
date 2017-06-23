@@ -5,10 +5,25 @@ import java.util.ArrayList;
  */
 public class Prime {
 
+    public int countPrimes(int n) {
+
+        //sieve creation for nonprimes
+        int count = 0;
+        boolean[] notPrime = new boolean[n];
+        for(int i = 2; i < n; i++){
+            if(notPrime[i]==false) count++;
+            for(int j = 2; i*j <n;j++){
+                notPrime[i*j] = true;
+            }
+        }
+        return count;
+
+    }
+
     private static boolean isPrime(int n){
         if(n==0) return false;
         if(n==1) return true;
-        for(int i=2; i<Math.sqrt(n);i++){
+        for(int i=2; i<n;i++){
             if(n%i == 0) {
                 return false;
 
